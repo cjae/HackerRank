@@ -1,28 +1,35 @@
-package warmup;
-
-
-import java.util.Scanner;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package implementation;
+
+import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
  * @author osagieomon
  */
-public class SumOfArray {
+public class SockMerchant {
     
-    static int simpleArraySum(int n, int[] ar) {
+    static int sockMerchant(int n, int[] ar) {
         // Complete this function
-        int total = 0;
-        for (int i : ar) {
-            total += i;
+        HashMap inventory = new HashMap<>();
+        int pair = 0;
+        
+        for (int num : ar) {
+            if(inventory.containsKey(num) && inventory.get(num).equals(1)) {
+                inventory.put(num, 0);
+                pair++;
+                continue;
+            }
+            
+            inventory.put(num, 1);
         }
         
-        return total;
+        return pair;
     }
 
     public static void main(String[] args) {
@@ -32,8 +39,7 @@ public class SumOfArray {
         for(int ar_i = 0; ar_i < n; ar_i++){
             ar[ar_i] = in.nextInt();
         }
-        
-        int result = simpleArraySum(n, ar);
+        int result = sockMerchant(n, ar);
         System.out.println(result);
     }
 }
