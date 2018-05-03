@@ -15,21 +15,25 @@ public class SuperReducedString {
 
     static String super_reduced_string(String s) {
         // Complete this function
-        int numLength = s.length();
-        String currentOutput = "";
 
-        for (int i = 0; i < numLength; i++) {
+        while(s.length() > 1) {
+            int numLength = s.length();
+            int i = 0;
+            
             char character = s.charAt(i);
 
             if (i + 1 < numLength) {
 
                 if (character == s.charAt(i + 1)) {
                     
+                    if (i + 2 < numLength) {
+                        s = s.substring(i + 2);
+                    }
                 }
             }
         }
         
-        return currentOutput;
+        return s;
     }
 
     public static void main(String[] args) {
